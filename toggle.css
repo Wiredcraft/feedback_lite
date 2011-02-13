@@ -1,0 +1,40 @@
+#feedback-lite {
+  bottom: 0;
+  opacity: 0.8;
+  position: fixed;
+  right: 5%;
+}
+
+#feedback-lite div {
+	background: black;
+  color: #FFF;
+  display: block;
+  font-size: 12px;
+}
+
+#feedback-lite .feedback-header {
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  float: right;
+  padding: 5px 10px 5px;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+}
+
+#feedback-lite .feedback-link {
+  border-radius: 5px 0 0 0;
+  clear: both;
+  display: none;
+  padding: 10px 7px;
+  -moz-border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+}
+
+#feedback-lite .feedback-link a {
+  background: #0088CC;
+  border-radius: 3px;
+  color: #FFF;
+  padding: 5px 7px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;	
+}

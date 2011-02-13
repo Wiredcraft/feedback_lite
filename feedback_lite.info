@@ -1,0 +1,6 @@
+name = Feedback lite
+description = Provides a link on all the pages for users to submit feedback through the contact form.
+package = "Other"
+dependencies[] = contact
+core = 6.x
+

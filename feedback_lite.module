@@ -1,0 +1,40 @@
+<?php
+/**
+ * Implementation of hook_init().
+ */
+function feedback_lite_init() {
+  $path = drupal_get_path('module', 'feedback_lite');
+  drupal_add_js($path .'/toggle.js');
+  drupal_add_css($path .'/toggle.css');
+}
+
+/**
+ * Implementation of hook_footer()
+ */
+function feedback_lite_footer($main = 0) {
+  if (!isset($_GET['feedback'])) {
+    $option = array(
+      'query' => array(
+        'feedback' => $_GET['q'],
+        'destination' => $_GET['q']
+      )
+    );
+    $output .= '<div id="feedback-lite">'."\n";
+    $output .= '<div class="feedback-header">'. t('Feedback') .'</div>'."\n";
+    $output .= '<div class="feedback-link">'. l('Send us your feedback', 'contact', $option) .'</div>'."\n";
+    $output .= '</div>'."\n";
+    return $output;
+  }
+}
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function feedback_lite_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'contact_mail_page' && isset($_GET['feedback'])) {
+    $form['subject']['#default_value'] = t('Feedback');
+    $output = t('Feedback about the page: @url', array( '@url' => url($_GET['feedback'], array('absolute' => TRUE)))) ."\n";
+    $output .= '---'."\n";
+    $form['message']['#default_value'] = $output;
+  }
+}
